@@ -1,0 +1,7 @@
+  webapp:
+    image: ${DOCKER_REGISTRY-}webapp:v1
+    build:
+      context: .
+      dockerfile: WebAPP/Dockerfile
+    ports:
+      - "4014:80"
