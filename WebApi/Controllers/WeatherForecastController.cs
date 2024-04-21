@@ -1,7 +1,10 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Common.JwtFeatures;
 
 namespace WebApi.Controllers
 {
+	[Authorize]
 	[ApiController]
 	[Route("[controller]")]
 	public class WeatherForecastController : ControllerBase
@@ -12,10 +15,12 @@ namespace WebApi.Controllers
 			};
 
 		private readonly ILogger<WeatherForecastController> _logger;
+		private readonly JwtHandler _jwtHandler;
 
-		public WeatherForecastController(ILogger<WeatherForecastController> logger)
+		public WeatherForecastController(ILogger<WeatherForecastController> logger, JwtHandler jwtHandler)
 		{
 			_logger = logger;
+			_jwtHandler = jwtHandler;
 		}
 
 		[HttpGet(Name = "GetWeatherForecast")]

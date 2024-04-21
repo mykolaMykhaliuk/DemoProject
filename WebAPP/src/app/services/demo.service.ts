@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
-providedIn: 'root'
+  providedIn: 'root',
 })
 export class DemoService {
   config = {
@@ -19,6 +19,8 @@ export class DemoService {
     return this.http.get('./assets/config.json');
   }
   getData(): Observable<any> {
-    return this.http.get(this.config.ApiUrl + '/WeatherForecast', {responseType: 'text'});
+    return this.http.get(this.config.ApiUrl + '/WeatherForecast', {
+      responseType: 'text',
+    });
   }
 }
