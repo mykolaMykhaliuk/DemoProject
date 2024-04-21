@@ -19,7 +19,7 @@ export class DemoService {
     return this.http.get('./assets/config.json');
   }
   getData(): Observable<any> {
-    return this.http.get(this.config.ApiUrl + '/WeatherForecast', {
+    return this.http.get(this.config.ApiUrl + '/Demo', {
       responseType: 'text',
     });
   }
